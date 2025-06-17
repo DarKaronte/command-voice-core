@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Colores futuristas personalizados
+				neon: {
+					blue: '#00d4ff',
+					cyan: '#00ffff',
+					purple: '#8b5cf6',
+					pink: '#f06292'
 				}
 			},
 			borderRadius: {
@@ -84,11 +92,55 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(0, 212, 255, 0.5)',
+						transform: 'scale(1)'
+					},
+					'50%': {
+						boxShadow: '0 0 40px rgba(0, 212, 255, 0.8)',
+						transform: 'scale(1.02)'
+					}
+				},
+				'recording-pulse': {
+					'0%, 100%': {
+						boxShadow: '0 0 0 0 rgba(239, 68, 68, 0.7)'
+					},
+					'50%': {
+						boxShadow: '0 0 0 15px rgba(239, 68, 68, 0)'
+					}
+				},
+				'text-shimmer': {
+					'0%': {
+						backgroundPosition: '-200% center'
+					},
+					'100%': {
+						backgroundPosition: '200% center'
+					}
+				},
+				'fade-in-up': {
+					from: {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					to: {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'recording-pulse': 'recording-pulse 1.5s ease-in-out infinite',
+				'text-shimmer': 'text-shimmer 3s ease-in-out infinite',
+				'fade-in-up': 'fade-in-up 0.5s ease-out'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
 			}
 		}
 	},
