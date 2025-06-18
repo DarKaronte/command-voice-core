@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 
 const JarvisBrain = () => {
@@ -206,18 +205,6 @@ const JarvisBrain = () => {
             ))}
           </div>
         )}
-      </div>
-
-      {/* Estado de actividad */}
-      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className={`flex items-center space-x-2 text-xs transition-all duration-300 ${
-          isProcessing ? 'text-neon-cyan' : 'text-muted-foreground'
-        }`}>
-          <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
-            isProcessing ? 'bg-neon-cyan animate-pulse' : 'bg-gray-500'
-          }`}></div>
-          <span>{isProcessing ? 'NEURAL ACTIVITY DETECTED' : 'STANDBY MODE'}</span>
-        </div>
       </div>
     </div>
   );
