@@ -1,5 +1,6 @@
 
 import { useEffect } from 'react';
+import JarvisBrain from '../components/JarvisBrain';
 
 const Index = () => {
   useEffect(() => {
@@ -42,24 +43,23 @@ const Index = () => {
       <div className="relative z-10 glass-effect border-b border-white/10 p-6">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-6">
-            {/* Logo/Avatar de Jarvis */}
+            {/* Logo/Avatar de Jarvis más pequeño */}
             <div className="relative">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-neon-blue via-neon-cyan to-neon-purple p-1 animate-pulse-glow">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-neon-blue via-neon-cyan to-neon-purple p-1 animate-pulse-glow">
                 <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-neon-blue to-neon-cyan animate-pulse"></div>
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-r from-neon-blue to-neon-cyan animate-pulse"></div>
                 </div>
               </div>
               {/* Anillos orbitales */}
               <div className="absolute inset-0 rounded-full border border-neon-blue/30 animate-spin" style={{animationDuration: '10s'}}></div>
-              <div className="absolute inset-2 rounded-full border border-neon-cyan/20 animate-spin" style={{animationDuration: '15s', animationDirection: 'reverse'}}></div>
             </div>
             
             <div>
-              <h1 className="text-4xl font-bold text-gradient animate-text-shimmer">
+              <h1 className="text-2xl font-bold text-gradient animate-text-shimmer">
                 JARVIS
               </h1>
-              <p className="text-muted-foreground text-sm tracking-wide">
-                Asistente de IA Conversacional • Neural Network v2.1
+              <p className="text-muted-foreground text-xs tracking-wide">
+                Neural Interface v2.1
               </p>
             </div>
           </div>
@@ -78,70 +78,58 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Contenedor principal centrado */}
-      <div className="relative z-10 flex-1 flex items-center justify-center p-8">
-        <div className="max-w-4xl w-full">
-          {/* Panel de información superior */}
-          <div className="text-center mb-12 animate-fade-in-up">
-            <h2 className="text-6xl font-light text-gradient mb-4 tracking-wide">
-              Interfaz de Voz Neural
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 font-light">
-              Mantén una conversación natural con Jarvis usando tu voz
-            </p>
+      {/* Contenedor principal */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center p-8 min-h-[calc(100vh-200px)]">
+        {/* Cerebro digital de Jarvis */}
+        <div className="mb-12 animate-fade-in-up">
+          <JarvisBrain />
+        </div>
+
+        {/* Título principal */}
+        <div className="text-center mb-8 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+          <h2 className="text-5xl font-light text-gradient mb-4 tracking-wide">
+            Interfaz Neural Conversacional
+          </h2>
+          <p className="text-xl text-muted-foreground font-light">
+            Mantén una conversación natural con Jarvis usando tu voz
+          </p>
+        </div>
+
+        {/* Contenedor del widget de ElevenLabs */}
+        <div className="relative max-w-4xl w-full animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+          {/* Marco futurista para el widget */}
+          <div className="glass-effect rounded-3xl p-8 border-2 border-transparent neon-border relative overflow-hidden">
+            {/* Efectos de esquina */}
+            <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-neon-cyan rounded-tl-lg"></div>
+            <div className="absolute top-4 right-4 w-6 h-6 border-r-2 border-t-2 border-neon-cyan rounded-tr-lg"></div>
+            <div className="absolute bottom-4 left-4 w-6 h-6 border-l-2 border-b-2 border-neon-cyan rounded-bl-lg"></div>
+            <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-neon-cyan rounded-br-lg"></div>
             
-            {/* Visualizador de ondas de audio decorativo */}
-            <div className="flex justify-center items-center space-x-1 mb-8">
-              {Array.from({length: 25}).map((_, i) => (
-                <div
-                  key={i}
-                  className="w-1 bg-gradient-to-t from-neon-blue to-neon-cyan rounded-full animate-pulse"
-                  style={{
-                    height: `${Math.random() * 40 + 10}px`,
-                    animationDelay: `${i * 0.1}s`,
-                    animationDuration: '2s'
-                  }}
-                ></div>
-              ))}
+            {/* Widget de ElevenLabs */}
+            <div className="min-h-[400px] flex items-center justify-center">
+              <elevenlabs-convai agent-id="agent_01jy00t7gmf38smmscjd008rg0"></elevenlabs-convai>
             </div>
           </div>
 
-          {/* Contenedor del widget de ElevenLabs */}
-          <div className="relative">
-            {/* Marco futurista para el widget */}
-            <div className="glass-effect rounded-3xl p-8 border-2 border-transparent neon-border relative overflow-hidden">
-              {/* Efectos de esquina */}
-              <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-neon-cyan rounded-tl-lg"></div>
-              <div className="absolute top-4 right-4 w-6 h-6 border-r-2 border-t-2 border-neon-cyan rounded-tr-lg"></div>
-              <div className="absolute bottom-4 left-4 w-6 h-6 border-l-2 border-b-2 border-neon-cyan rounded-bl-lg"></div>
-              <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-neon-cyan rounded-br-lg"></div>
-              
-              {/* Widget de ElevenLabs */}
-              <div className="min-h-[400px] flex items-center justify-center">
-                <elevenlabs-convai agent-id="agent_01jy00t7gmf38smmscjd008rg0"></elevenlabs-convai>
-              </div>
+          {/* Líneas de conexión decorativas */}
+          <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent to-neon-cyan"></div>
+          <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 w-px h-16 bg-gradient-to-t from-transparent to-neon-cyan"></div>
+        </div>
+
+        {/* Panel de información inferior */}
+        <div className="text-center mt-12 animate-fade-in-up" style={{animationDelay: '0.9s'}}>
+          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="glass-effect rounded-xl p-4 border border-white/10">
+              <div className="text-neon-blue text-2xl font-bold mb-2">🎤</div>
+              <p className="text-sm text-muted-foreground">Reconocimiento de Voz</p>
             </div>
-
-            {/* Líneas de conexión decorativas */}
-            <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent to-neon-cyan"></div>
-            <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 w-px h-16 bg-gradient-to-t from-transparent to-neon-cyan"></div>
-          </div>
-
-          {/* Panel de información inferior */}
-          <div className="text-center mt-12 animate-fade-in-up" style={{animationDelay: '0.5s'}}>
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-              <div className="glass-effect rounded-xl p-4 border border-white/10">
-                <div className="text-neon-blue text-2xl font-bold">🎤</div>
-                <p className="text-sm text-muted-foreground mt-2">Reconocimiento de Voz</p>
-              </div>
-              <div className="glass-effect rounded-xl p-4 border border-white/10">
-                <div className="text-neon-cyan text-2xl font-bold">🧠</div>
-                <p className="text-sm text-muted-foreground mt-2">Procesamiento IA</p>
-              </div>
-              <div className="glass-effect rounded-xl p-4 border border-white/10">
-                <div className="text-neon-purple text-2xl font-bold">🔊</div>
-                <p className="text-sm text-muted-foreground mt-2">Síntesis de Voz</p>
-              </div>
+            <div className="glass-effect rounded-xl p-4 border border-white/10">
+              <div className="text-neon-cyan text-2xl font-bold mb-2">🧠</div>
+              <p className="text-sm text-muted-foreground">Procesamiento IA</p>
+            </div>
+            <div className="glass-effect rounded-xl p-4 border border-white/10">
+              <div className="text-neon-purple text-2xl font-bold mb-2">🔊</div>
+              <p className="text-sm text-muted-foreground">Síntesis de Voz</p>
             </div>
           </div>
         </div>
